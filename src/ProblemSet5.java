@@ -27,7 +27,8 @@ public class ProblemSet5 {
       // System.out.println(ps.isCentered("lassy", "ass"));
       // System.out.println(ps.countMe("My name is Po and I am worthy of the dragon scroll", 'l'));
       // System.out.println(ps.triplets("MASSS TIMMMES GRAAAVITY"));
-      System.out.println(ps.addMe("a1b2c3"));
+      // System.out.println(ps.addMe("a1b2c3d4g5;[]---=;    fgf47"));
+      System.out.println(ps.sequence("ok boomer"));
 
     }
 
@@ -127,13 +128,12 @@ public class ProblemSet5 {
       int wordCount = 0;
 
       for (int i = 0; i < text.length() - 1; i ++) {
-            if(text.charAt(i + 1) == ' ') {
-                if (text.charAt(i) == suffix) {
-                  wordCount++;
-                }
+            if (text.charAt(i + 1) == ' ' && text.charAt(i) == suffix) {
+                wordCount++;
             }
       }
-      if(text.charAt(text.length() - 1) == suffix) {
+
+      if (text.charAt(text.length() - 1) == suffix) {
             wordCount ++;
       }
 
@@ -180,7 +180,17 @@ public class ProblemSet5 {
         return -1;
       }
 
+      int sum = 0;
 
+      for (int i = 0; i < text.length(); i++) {
+        char character = text.charAt(i);
+        if (Character.isDigit(character)) {
+          int number = Character.getNumericValue(character);
+          sum += number;
+        }
+      }
+
+      return sum;
 
     }
 
@@ -190,17 +200,36 @@ public class ProblemSet5 {
      * Given a string, compute the length of the longest sequence.
      */
 
-    // public long sequence(String text) {
-    //
-    // }
-    //
-    // /*
-    //  * Exercise 9.
-    //  *
-    //  * Given two strings, return a new string built by intertwining each of the
-    //  * characters of a and b.
-    //  */
-    //
+    public long sequence(String text) {
+
+      if (text == null) {
+        return -1;
+      }
+
+      int longestConsecutive = 0;
+      int consecutive = 0;
+
+      for (int i = 0; i < text.length() - 1; i++) {
+        if (text.charAt(i) == text.charAt(i + 1)) {
+          consecutive++;
+          i++;
+          if (consecutive > longestConsecutive) {
+            longestConsecutive = consecutive;
+          }
+        }
+      }
+
+      return consecutive;
+
+    }
+
+    /*
+     * Exercise 9.
+     *
+     * Given two strings, return a new string built by intertwining each of the
+     * characters of a and b.
+     */
+
     // public String intertwine(String a, String b) {
     //
     // }
