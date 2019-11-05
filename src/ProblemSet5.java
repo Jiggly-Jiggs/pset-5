@@ -24,7 +24,10 @@ public class ProblemSet5 {
       // System.out.println(ps.surroundMe("jajajaja", "jaja"));
       // System.out.println(ps.endsMeet("jajajaja", 2));
       // System.out.println(ps.middleMan("lassy"));
-      System.out.println(ps.isCentered("texas", "lassy"));
+      // System.out.println(ps.isCentered("lassy", "ass"));
+      // System.out.println(ps.countMe("My name is Po and I am worthy of the dragon scroll", 'l'));
+      // System.out.println(ps.triplets("MASSS TIMMMES GRAAAVITY"));
+      System.out.println(ps.addMe("a1b2c3"));
 
     }
 
@@ -95,44 +98,98 @@ public class ProblemSet5 {
 
     public boolean isCentered(String text, String target) {
 
+      if (text == null || text.length() % 2 == 0 || text.length() < 3 || target.length() != 3) {
+        return false;
+      }
+
+      String middleText = text.substring(text.length() / 2 - 1, text.length() / 2 + 2);
+
+      if (middleText.equals(target)) {
+        return true;
+      } else {
+        return false;
+      }
+
     }
 
-    // /*
-    //  * Exercise 5.
-    //  *
-    //  * Given a string and a character, compute the number of words that end in suffix.
-    //  */
-    //
-    // public int countMe(String text, char suffix) {
-    //
-    // }
-    //
-    // /*
-    //  * Exercise 6.
-    //  *
-    //  * Given a string, compute the number of triplets in text.
-    //  */
-    //
-    // public int triplets(String text) {
-    //
-    // }
-    //
-    // /*
-    //  * Exercise 7.
-    //  *
-    //  * Given a string, compute the sum of the digits in text.
-    //  */
-    //
-    // public long addMe(String text) {
-    //
-    // }
-    //
-    // /*
-    //  * Exercise 8.
-    //  *
-    //  * Given a string, compute the length of the longest sequence.
-    //  */
-    //
+    /*
+     * Exercise 5.
+     *
+     * Given a string and a character, compute the number of words that end in suffix.
+     */
+
+    public int countMe(String text, char suffix) {
+
+      if (text == null || !Character.isLetter(suffix)) {
+        return -1;
+      }
+
+      int wordCount = 0;
+
+      for (int i = 0; i < text.length() - 1; i ++) {
+            if(text.charAt(i + 1) == ' ') {
+                if (text.charAt(i) == suffix) {
+                  wordCount++;
+                }
+            }
+      }
+      if(text.charAt(text.length() - 1) == suffix) {
+            wordCount ++;
+      }
+
+      return wordCount;
+
+    }
+
+    /*
+     * Exercise 6.
+     *
+     * Given a string, compute the number of triplets in text.
+     */
+
+    public int triplets(String text) {
+
+      if (text == null) {
+        return -1;
+      }
+
+      int tripletCount = 0;
+
+      for (int i = 0; i < text.length() - 2; i++) {
+        char letterFirst = text.charAt(i);
+        char letterSecond = text.charAt(i + 1);
+        char letterThird = text.charAt(i + 2);
+        if (letterFirst == letterSecond && letterFirst == letterThird) {
+          tripletCount++;
+        }
+      }
+
+        return tripletCount;
+
+    }
+
+    /*
+     * Exercise 7.
+     *
+     * Given a string, compute the sum of the digits in text.
+     */
+
+    public long addMe(String text) {
+
+      if (text == null) {
+        return -1;
+      }
+
+
+
+    }
+
+    /*
+     * Exercise 8.
+     *
+     * Given a string, compute the length of the longest sequence.
+     */
+
     // public long sequence(String text) {
     //
     // }
