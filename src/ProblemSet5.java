@@ -28,7 +28,8 @@ public class ProblemSet5 {
       // System.out.println(ps.countMe("abc$ def$ $", '$'));
       // System.out.println(ps.triplets(null));
       // System.out.println(ps.addMe(null));
-      System.out.println(ps.sequence(null));
+      // System.out.println(ps.sequence(null));
+      System.out.println(ps.intertwine("mm i", "aama"));
 
     }
 
@@ -253,16 +254,49 @@ public class ProblemSet5 {
      * characters of a and b.
      */
 
-    // public String intertwine(String a, String b) {
-    //
-    // }
-    //
-    // /*
-    //  * Exercise 10.
-    //  *
-    //  * Given a string, determine whether or not it is a palindrome.
-    //  */
-    //
+    public String intertwine(String a, String b) {
+
+      if (a == null || b == null) {
+        return null;
+      }
+
+      String intertwined = "";
+      boolean aStop = true;
+      boolean bStop = true;
+      int loopLength = 0;
+
+      if (a.length() > b.length()) {
+        loopLength = a.length();
+      } else if (b.length() > a.length()) {
+        loopLength = b.length();
+      } else {
+        loopLength = a.length();
+      }
+
+      for (int i = 0; i < loopLength; i++) {
+        if (i > a.length() - 1) {
+          aStop = false;
+        } else if (i > b.length() - 1) {
+          bStop = false;
+        }
+        if (aStop) {
+          intertwined += Character.toString(a.charAt(i));
+        }
+        if (bStop) {
+          intertwined += Character.toString(b.charAt(i));
+        }
+      }
+
+      return intertwined;
+
+    }
+
+    /*
+     * Exercise 10.
+     *
+     * Given a string, determine whether or not it is a palindrome.
+     */
+
     // public boolean isPalindrome(String text) {
     //
     // }
