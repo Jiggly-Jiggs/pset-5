@@ -21,25 +21,14 @@ public class ProblemSet5 {
     public static void main(String[] args) {
 
       ProblemSet5 ps = new ProblemSet5();
-<<<<<<< HEAD
       // System.out.println(ps.surroundMe("abc", "123"));
       // System.out.println(ps.endsMeet("abc", -1));
       // System.out.println(ps.middleMan("a"));
       // System.out.println(ps.isCentered("abcdefg", "cd"));
-      System.out.println(ps.countMe("My name is Po and I am worthy of the dragon scroll", 'l'));
-      // System.out.println(ps.triplets("MASSS TIMMMES GRAAAVITY"));
-      // System.out.println(ps.addMe("a1b2c3d4g5;[]---=;    fgf47"));
+      // System.out.println(ps.countMe("abc$ def$ $", '$'));
+      // System.out.println(ps.triplets(null));
+      // System.out.println(ps.addMe("abbcccdddd"));
       // System.out.println(ps.sequence("ok boooomeeer"));
-=======
-      // System.out.println(ps.surroundMe("jajajaja", "jaja"));
-      // System.out.println(ps.endsMeet("jajajaja", 2));
-      // System.out.println(ps.middleMan("lassy"));
-      // System.out.println(ps.isCentered("lassy", "ass"));
-      // System.out.println(ps.countMe("My name is Po and I am worthy of the dragon scroll", 'l'));
-      // System.out.println(ps.triplets("MASSS TIMMMES GRAAAVITY"));
-      // System.out.println(ps.addMe("a1b2c3d4g5;[]---=;    fgf47"));
-      System.out.println(ps.sequence("ok boomer"));
->>>>>>> d55dd9131853551b4f81cfe6aec03b2f6442af8c
 
     }
 
@@ -110,11 +99,7 @@ public class ProblemSet5 {
 
     public boolean isCentered(String text, String target) {
 
-<<<<<<< HEAD
       if (text == null || text.length() % 2 == 0 || text.length() < 3 || target == null || target.length() != 3) {
-=======
-      if (text == null || text.length() % 2 == 0 || text.length() < 3 || target.length() != 3) {
->>>>>>> d55dd9131853551b4f81cfe6aec03b2f6442af8c
         return false;
       }
 
@@ -226,11 +211,7 @@ public class ProblemSet5 {
 
       for (int i = 0; i < text.length() - 1; i++) {
         if (text.charAt(i) == text.charAt(i + 1)) {
-<<<<<<< HEAD
           consecutive += 2;
-=======
-          consecutive++;
->>>>>>> d55dd9131853551b4f81cfe6aec03b2f6442af8c
           i++;
           if (consecutive > longestConsecutive) {
             longestConsecutive = consecutive;
