@@ -27,8 +27,8 @@ public class ProblemSet5 {
       // System.out.println(ps.isCentered("abcdefg", "cd"));
       // System.out.println(ps.countMe("abc$ def$ $", '$'));
       // System.out.println(ps.triplets(null));
-      // System.out.println(ps.addMe("abbcccdddd"));
-      // System.out.println(ps.sequence("ok boooomeeer"));
+      // System.out.println(ps.addMe(null));
+      System.out.println(ps.sequence(null));
 
     }
 
@@ -204,22 +204,45 @@ public class ProblemSet5 {
 
       if (text == null) {
         return -1;
+      } else if (text.equals("")) {
+        return 0;
       }
 
       int longestConsecutive = 0;
       int consecutive = 0;
 
-      for (int i = 0; i < text.length() - 1; i++) {
-        if (text.charAt(i) == text.charAt(i + 1)) {
-          consecutive += 2;
-          i++;
+
+      for (int i = 1; i < text.length(); i++) {
+        if (i == text.length() - 1) {
+          if (text.charAt(i - 1) == text.charAt(i)) {
+            consecutive++;
+            if (consecutive > longestConsecutive) {
+              longestConsecutive = consecutive;
+            }
+            consecutive = 0;
+          } else if (text.charAt(i - 1) != text.charAt(i)) {
+              if (consecutive > longestConsecutive) {
+                longestConsecutive = consecutive;
+              }
+              consecutive = 0;
+          }
+        } else if (text.charAt(i - 1) == text.charAt(i)) {
+          consecutive++;
+        } else if (text.charAt(i) == ' ' || text.charAt(i) == '.' || text.charAt(i - 1) != text.charAt(i)) {
           if (consecutive > longestConsecutive) {
             longestConsecutive = consecutive;
           }
+        consecutive = 0;
         }
       }
 
-      return consecutive;
+      if (longestConsecutive == 0) {
+        longestConsecutive = 1;
+      } else {
+        longestConsecutive++;
+      }
+
+      return longestConsecutive;
 
     }
 
